@@ -1,0 +1,53 @@
+@use 'base/variables'as v;
+@use 'base/mixins' as m;
+.header{
+background-color: v.$verde;
+// mqeury
+@include m.tablet {
+    &.fijo{
+     left: 0;
+     top: 0;
+        position: fixed;
+        width: 100%;
+        box-shadow: .1rem .2rem .3rem #333;
+    }    
+}
+
+
+h1{
+    color: v.$blanco;   
+    text-align: center;
+@include m.tablet {
+    margin: 0;
+}
+
+}
+.contenido-header{
+    padding: 2rem;
+    @include m.tablet {
+        display: flex;  //aplicamos display flex para aligerar los movimientos
+    justify-content: space-between; //mandamos al lado derecho las palabras
+align-items: center;//alineamos de forma Horizontal todas las palabras
+}
+}
+
+}
+.navegacion-principal{
+    @include m.tablet {
+        display: flex; //apartir del tamaño de tablet tendremos un displey flex
+    gap: 2rem; //le agremamos una separacion de 2rem sobre cada palabra
+    }
+a{
+    display: block;
+    text-align: center;
+        color: v.$blanco; 
+        font-size: 2.4rem;
+margin-bottom: 1rem;
+@include m.tablet {
+    margin: 0;
+}
+        &:hover{
+        color: v.$negro; 
+        } 
+    }
+}

@@ -1,0 +1,38 @@
+// creacion de mixin
+@use 'variables' as v; //mandamos llamar al archivo variables
+@mixin telefono{//mediaqueri de telefono
+    @media(min-width: v.$telefono){ //mediaqueri de 480
+ @content;       
+    }
+}  
+
+//mediaqueri teblet
+@mixin tablet{
+    @media(min-width: v.$tablet){//pixeles asignados
+        @content ; //content para poder llamar hacia otro archivo
+    }
+}
+
+@mixin desktop{
+@media (min-width: v.$desktop) {//pixeles asignados
+    @content
+}
+}
+
+@mixin desktopXL{
+    @media (min-width: v.$desktopXL) { 
+        @content; 
+    }
+}
+
+@mixin grid($columnas, $espaciado){
+    display: grid;            //pasamos el parametros de columnas 
+grid-template-columns: repeat($columnas, 1fr);
+gap: $espaciado
+}
+
+@mixin resetear-lista{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
